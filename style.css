@@ -29,6 +29,18 @@ body {
     color: #fff; 
 }
 
+@keyframes pulse-logo {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* Slightly scales the whole logo */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 /*------------------------------------------------------------------------------------------------------
   2. HEADER & NAVIGATION
 ------------------------------------------------------------------------------------------------------*/
@@ -53,6 +65,17 @@ nav {
 .logo a {
     text-decoration: none;
     color: #fff; 
+    transition: transform 0.7s ease-in-out;
+}
+
+.logo a.pulsing {
+    animation: pulse-logo 0.7s infinite ease-in-out; 
+    display: inline-block; 
+}
+
+.logo a:hover {
+    animation-play-state: paused;
+    transform: scale(1.08) !important;
 }
 
 .logo {

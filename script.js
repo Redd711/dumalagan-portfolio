@@ -1,4 +1,5 @@
 const header = document.querySelector('header');
+const logoLink = document.querySelector('.logo a');
 let lastScrollY = window.scrollY;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,10 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (currentScrollY > lastScrollY && scrollDistanceToBottom > bottomThreshold && currentScrollY > 100) {
             header.style.transform = 'translateY(-100%)';
+            logoLink.classList.remove('pulsing');
         } 
         
-        else if (currentScrollY < lastScrollY || scrollDistanceToBottom < bottomThreshold) {
+        else if (currentScrollY < lastScrollY) {
             header.style.transform = 'translateY(0)';
+        }
+
+        else if (scrollDistanceToBottom < bottomThreshold) {
+            header.style.transform = 'translateY(0)';
+            logoLink.classList.add('pulsing');
         }
         lastScrollY = currentScrollY;
     });
