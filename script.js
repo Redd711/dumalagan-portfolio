@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
             logoLink.classList.add('pulsing');
         }
         lastScrollY = currentScrollY;
+
+        if (logoLink) {
+            logoLink.addEventListener('click', () => {
+                logoLink.classList.remove('pulsing');
+            });
+        }
+
     });
     
     window.addEventListener('scroll', () => {
